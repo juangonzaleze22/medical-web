@@ -1,0 +1,34 @@
+<wrapper-modal title="Informacion de cita" >
+    <div class="info-cite">
+        <div class="form-group">
+            <p class="title">Titulo de la cita: </p>
+            <p class="description">{{cite?.title}}</p>
+        </div><div class="form-group">
+            <p class="title">Paciente: </p>
+            <p class="description">{{cite?.user?.displayName}}</p>
+        </div>
+        <div class="form-group">
+            <p class="title">Fecha </p>
+            <p class="description">{{cite?.date | date:'dd-MM-YYYY'}}</p>
+        </div>
+        <div class="form-group">
+            <p class="title">Hora: </p>
+            <p class="description">{{cite?.date | date:' H:mm'}}</p>
+        </div>
+        <div class="form-group full">
+            <p class="title">Descripcion: </p>
+            <p class="description">{{cite?.description}}</p>
+        </div>
+        <div class="form-group">
+            <p class="title">Estado: </p>
+            <div class="statusText"> 
+               <!--  <div 
+                    class="statusCircle"
+                    [ngStyle]="{'backgroundColor': cite?.backgroundColor}"
+                ></div> -->
+                <app-status-chip status="{{cite?.status}}"/>
+            </div>
+        </div>
+    </div>
+
+</wrapper-modal>

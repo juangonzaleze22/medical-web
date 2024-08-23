@@ -1,0 +1,30 @@
+.info-cite{
+    padding:1rem 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+
+    
+    .form-group { 
+        width: calc(50% - 1rem);
+        margin-bottom: 1rem;
+        &.full{
+            width: calc(100% - 1rem)
+        }
+        
+    }
+
+   
+}
+
+.statusText{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.statusCircle{
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+}

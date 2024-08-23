@@ -1,0 +1,47 @@
+<div class="general-cites-section section-card">
+  <app-title-section title="Citas" [button]="isAscending ? 'Citas mas recientes' : 'Citas mas antiguas'"
+    (clicked)="onButtonClicked($event)" iconButton="swap_vert" />
+  <div class="section-tabs">
+    <mat-button-toggle-group name="fontStyle" [value]="status_cite[0].value" (change)="onChangeTypeCite($event)"
+      class="statusFilter">
+      @for (item of status_cite; track $index) {
+      <mat-button-toggle [value]="item.value">{{item.name}}</mat-button-toggle>
+      }
+
+    </mat-button-toggle-group>
+    <div class="form-group">
+      <mat-form-field class="field-input" appearance="outline">
+        <mat-label>Buscar cita</mat-label>
+        <input matInput type="text" [(ngModel)]="searchText" (keyup)="searchData(searchText)">
+      </mat-form-field>
+    </div>
+  </div>
+
+  <div class="cites">
+    <div class="list">
+      @for (dateGroup of FilteredGroupedCite; track dateGroup.cites) {
+        @if (dateGroup.cites.length > 0 ) {
+        <div class="date-header">
+          <mat-icon>calendar_month</mat-icon>
+          {{ dateGroup.date | date: "'MMM d, y"}}
+        </div>
+        <app-card-cite *ngFor="let cite of dateGroup.cites" [cite]="cite" (click)="selectedCiteInfo(cite)"
+          [ngClass]="{'active': selectedCite?._id === cite._id}" />
+        }
+      }
+
+      @if(FilteredGroupedCite.length === 0){ 
+        No tiene cita 
+      }
+
+    </div>
+    <div class="detail">
+      @if(selectedCite){
+        <app-cite-details [cite]="selectedCite" (onChangeUpdateCite)="onChangeCite()" [typeCite]="selectedTypeCite" />
+      }@else{
+        Seleccione una cita
+      <!--   <img src="assets/empty-cites/empty.png" alt=""> -->
+      }
+    </div>
+  </div>
+</div>

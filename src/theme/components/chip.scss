@@ -1,0 +1,34 @@
+mat-chip{ 
+    --mdc-chip-container-height: 22px !important;
+    border-radius: 5px !important;
+    color: #fff !important;
+    .mdc-evolution-chip__action{
+        padding-left: 8px !important;
+        padding-right: 8px !important;
+    }
+
+    span{
+        text-transform:lowercase;
+        font-size: 10px;
+        font-weight: 600;
+    }
+
+    span:first-letter{
+        text-transform: capitalize;
+    }
+
+    // status
+
+    &.chip-pending{ 
+        background-color: var(--status-chip-pending) !important; 
+    }
+    &.chip-approved{ 
+        background-color: var(--status-chip-approved) !important; 
+    }
+    &.chip-cancelled{ 
+        background-color: var(--status-chip-cancelled) !important; 
+    }
+    &.chip-finished{ 
+        background-color: var(--status-chip-finished) !important; 
+    }
+}

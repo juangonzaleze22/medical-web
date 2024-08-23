@@ -1,0 +1,22 @@
+<div class="modal-wrapper">
+    <mat-toolbar color="accent" class="header" >
+      <span>{{ title }}</span>
+      <span class="example-spacer"></span>
+      <button 
+      class="btn-close"
+        mat-icon-button 
+        (click)="closeModalHeadButton()"
+      >
+        <mat-icon>close</mat-icon>
+      </button>
+    </mat-toolbar>
+    <div class="modal-body">
+      <ng-content></ng-content>
+    </div>
+    @if (!buttonsActionsHide){
+      <mat-toolbar color="light" class="footer">
+        <button mat-button mat-dialog-close (click)="closeDialog(false)">Cancelar</button>
+        <button mat-button (click)="closeDialog(true)" color="accent">Confirmar</button>
+      </mat-toolbar>
+    }
+</div>

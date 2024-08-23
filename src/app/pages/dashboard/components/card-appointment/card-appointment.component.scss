@@ -1,0 +1,23 @@
+.info{ 
+    display: flex;
+    align-items: center;
+    width: 100%;
+    justify-content: space-between;
+    gap: 1rem;
+    cursor: pointer;
+
+    h5{ 
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        max-width: 140px;
+    }
+}
+
+.buttons{ 
+    gap: .25rem;
+    display: flex;
+    button{ 
+        zoom: .775;
+    }
+}

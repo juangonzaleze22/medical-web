@@ -1,0 +1,63 @@
+<div class="section-card">
+    <app-title-section title="Dashboard" />
+    <div class="graph-section">
+        <app-card-info-graph title="Pacientes" icon="person" value="241"/>
+        <app-card-info-graph title="Citas totales" icon="medical_information" value="300"/>
+        <!-- <app-card-info-graph title="example" icon="settings" value="300"/> -->
+        <app-card-info-graph title="Ganancia" icon="attach_money" value="1000"/>
+
+    </div>
+    <div class="graph-section half">
+        <div class="graph">
+            <div class="graph__header ">
+                <h5>Citas</h5>
+                <a href="#">Ver más</a>
+            </div>
+            <div class="group pie">
+                <ul class="list">
+                    <li>
+                        <div class="circle" [ngStyle]="{'backgroundColor': '#2196F375'}"></div>
+                        <span>Pendiente</span>
+                    </li>
+                    <li>
+                        <div class="circle" [ngStyle]="{'backgroundColor': '#f4433675'}"></div>
+                        <span>Rechazadas</span>
+                    </li>
+                    <li>
+                        <div class="circle" [ngStyle]="{'backgroundColor': '#4caf5075'}"></div>
+                        <span>Aceptadas</span>
+                    </li>
+                    <li>
+                        <div class="circle" [ngStyle]="{'backgroundColor': '#f4953675'}"></div>
+                        <span>Finalizadas</span>
+                    </li>
+                </ul>
+                <canvas baseChart [data]="doughnutChartData" type="doughnut" [options]="optionsDoughnutGraph"></canvas>
+            </div>
+        </div>
+        <div class="graph">
+            <div class="graph__header ">
+                <h5>Historial de citas</h5>
+                <a href="#">Ver más</a>
+            </div>
+            <div class="group">
+                <canvas baseChart [data]="dataBar" type="bar" height="160" [options]="{
+                      plugins: {
+                        legend: {
+                        display: false,
+                        }
+                    },
+                }"></canvas>
+            </div>
+        </div>
+    </div>
+    <div class="graph-section full">
+        <div class="graph">
+            <div class="graph__header ">
+                <h5>Pacientes</h5>
+                <a href="#">Ver más</a>
+            </div>
+            <app-table-cite-recent></app-table-cite-recent>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,19 @@
+:root{ 
+    --color-primary: #112950;
+    --color-secondary: #177ee5;
+    --color-gray: #828ca5;
+    --color-white: #fff;
+
+    --font-primary: "Epilogue", sans-serif;
+
+    --box-shadow: 3px 7px 15px rgba(0, 0, 0, .14);
+    --section-padding: 6.25rem 0;
+
+    --mat-form-field-container-height: 44px;
+    --mat-form-field-container-vertical-padding: 10px;
+
+    --status-chip-pending: #2196F375;
+    --status-chip-approved: #4caf5075;
+    --status-chip-cancelled: #f4433675;
+    --status-chip-finished: #f4953675;
+}

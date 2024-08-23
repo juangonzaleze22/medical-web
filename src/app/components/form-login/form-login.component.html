@@ -1,0 +1,51 @@
+<div class="form_login">
+  <h2 class="form_login__title">Inicia sesión</h2>
+  <p class="form_login__description">Ingresa y agenda una cita médica.</p>
+
+  <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <mat-form-field appearance="outline">
+        <mat-label>Email</mat-label>
+        <input matInput placeholder="pat@example.com" formControlName="email" />
+      </mat-form-field>
+      @for( validation of loginValidationMessages.email; track $index) {
+        @if (f['email'].hasError(validation.type) &&
+          (f['email'].dirty || f['email'].touched)) {
+        <mat-error>{{ validation.message }}</mat-error>
+        }
+      }
+    </div>
+    <div class="form-group">
+      <mat-form-field appearance="outline">
+        <mat-label>Password</mat-label>
+        <input matInput [type]="hidePassword ? 'password' : 'text'" formControlName="password" autocomplete="off"/>
+        <button mat-icon-button matSuffix (click)="hidePassword = !hidePassword" [attr.aria-label]="'Hide password'"
+          [attr.aria-pressed]="hidePassword" type="button">
+          <mat-icon>{{!hidePassword ? 'visibility_off' : 'visibility'}}</mat-icon>
+        </button>
+      </mat-form-field>
+      @for( validation of loginValidationMessages.password; track $index) {
+        @if (f['password'].hasError(validation.type) &&
+          (f['password'].dirty || f['password'].touched)) {
+          <mat-error>{{ validation.message }}</mat-error>
+        }
+      }
+    </div>
+    <p class="form_login__register">¿Aún no tienes cuenta? <a  [routerLink]="['/register']" type="button">¡Crea una ahora mismo!</a></p>
+    <button 
+      class="form_login__button"
+      mat-flat-button color="accent"
+      [disabled]="loading || this.loginForm.invalid"
+      [class.spinner]="loading"
+    >
+      Ingresar
+    </button>
+  </form>
+  <div class="or-divider">O ingresa con: </div>
+    <div class="social-buttons">
+      <button mat-fab  color="basic" (click)="loginGoogle()">
+        <mat-icon><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M20.283 10.356h-8.327v3.451h4.792c-.446 2.193-2.313 3.453-4.792 3.453a5.27 5.27 0 0 1-5.279-5.28 5.27 5.27 0 0 1 5.279-5.279c1.259 0 2.397.447 3.29 1.178l2.6-2.599c-1.584-1.381-3.615-2.233-5.89-2.233a8.908 8.908 0 0 0-8.934 8.934 8.907 8.907 0 0 0 8.934 8.934c4.467 0 8.529-3.249 8.529-8.934 0-.528-.081-1.097-.202-1.625z"></path></svg></mat-icon>
+      </button>
+    </div>
+
+</div>

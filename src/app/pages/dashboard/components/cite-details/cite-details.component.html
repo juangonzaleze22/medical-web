@@ -1,0 +1,147 @@
+<mat-card class="details">
+    <div class="details__box">
+        <img [src]="cite?.user?.photoURL" alt="">
+        <h3 class="details__name">{{cite?.user?.displayName}}</h3>
+    </div>
+    <div class="details__body">
+        <ul class="details__info">
+            <li>
+                <span class="bold">
+                    <mat-icon>email</mat-icon>
+                    Email:
+                </span>
+                <span>{{cite?.user?.email}}</span>
+            </li>
+            <li>
+                <span class="bold">
+                    <mat-icon>event</mat-icon>
+                    Fecha y hora:
+                </span>
+                <span>{{cite?.date | date: 'short'}}</span>
+            </li>
+            <li>
+                <span class="bold">
+                    <mat-icon>adjust</mat-icon>
+                    Estado:
+                </span>
+                <span>
+                    <app-status-chip [status]="cite?.status"></app-status-chip>
+                </span>
+            </li>
+        </ul>
+        <div class="form-group">
+            <label for="" class="details__label">
+                <mat-icon>personal_injury</mat-icon>
+                Motivo de consulta:
+            </label>
+            <p class="details__description">
+                {{cite?.title}}
+            </p>
+        </div>
+        <div class="form-group">
+            <label for="" class="details__label">
+                <mat-icon>description</mat-icon>
+                Descripión:
+            </label>
+            <p class="details__description">
+                {{cite?.description}}
+            </p>
+        </div>
+
+        @if (
+            typeCite === status_cite.CANCELLED ||
+            typeCite === status_cite.APPROVED && user?.isAdmin ||
+            typeCite === status_cite.FINISHED 
+            ){
+            <div class="title-medical">
+                <h5>Médico</h5>
+            </div>
+        }
+
+        @if (typeCite === status_cite.CANCELLED){
+
+        <div class="form-group">
+            <label for="" class="details__label">
+                <mat-icon>info</mat-icon>
+                Motivo:
+            </label>
+            <p class="details__description cancelled">
+                {{cite?.reason_cancel ? cite?.reason_cancel : 'Sin motivo'}}
+            </p>
+        </div>
+        <!--  <mat-toolbar class="footer">
+                <button mat-button mat-dialog-close (click)="handleConfirmAction(false)">Cancelar</button>
+                <button mat-button (click)="handleConfirmAction(true)" color="accent">Confirmar</button>
+            </mat-toolbar> -->
+        }
+
+        <!-- //section medical response -->
+
+        @if (user?.isAdmin && typeCite === status_cite.PENDING){
+            <mat-toolbar class="footer">
+                <button mat-button mat-dialog-close (click)="handleConfirmAction(false)">Cancelar</button>
+                <button mat-button (click)="handleConfirmAction(true)" color="accent">Confirmar</button>
+            </mat-toolbar>
+        }
+
+        @if (user?.isAdmin && typeCite === status_cite.APPROVED){
+
+        <form [formGroup]="formfinalized" (ngSubmit)="onSubmitFinalized()">
+            <div class="form-group">
+                <label for="" class="details__label">
+                    <mat-icon>medical_information</mat-icon>
+                    Observaciones:
+                </label>
+                <!--  <mat-form-field appearance="outline">
+                    <textarea matInput formControlName="observation" autocomplete="off" > </textarea>
+                </mat-form-field> -->
+                <!-- <input type="text" formControlName="observation"> -->
+                <app-input-editor controlName="observation"></app-input-editor>
+            </div>
+
+            <div class="form-group">
+                <label for="" class="details__label">
+                    <mat-icon>medical_services</mat-icon>
+                    Receta médica:
+                </label>
+                <app-input-editor controlName="recipe"></app-input-editor>
+            </div>
+            <mat-toolbar class="footer">
+                <button mat-button color="accent">Finalizar dita</button>
+            </mat-toolbar>
+        </form>
+        }
+
+        @if (typeCite === status_cite.FINISHED){
+            
+            <div class="form-group">
+                <label for="" class="details__label">
+                    <mat-icon>personal_injury</mat-icon>
+                    Observaciones
+                </label>
+                <p class="details__description" [innerHTML]="cite?.medical_response?.observation"></p>
+            </div>
+            <div class="form-group">
+                <label for="" class="details__label">
+                    <mat-icon>description</mat-icon>
+                    Recipe:
+                </label>
+                <p class="details__description" [innerHTML]="cite?.medical_response?.recipe"></p>
+            </div>
+        }
+    </div>  
+
+
+    <!-- <div class="form-group">
+        <mat-form-field appearance="outline">
+            <input matInput formControlName="observation" autocomplete="off"/>
+        </mat-form-field>
+        <label for="" class="details__label">
+            <mat-icon>medical_information</mat-icon>
+            Observaciones:
+        </label>
+        <p class="details__description">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor reprehenderit minima ad iste cupiditate, laborum dolorem vero, fuga repellat doloremque nihil aspernatur vel. Iusto nam architecto atque distinctio labore aspernatur.
+        </p>
+    </div> -->
+</mat-card>

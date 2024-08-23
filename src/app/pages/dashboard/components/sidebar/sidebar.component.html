@@ -1,0 +1,17 @@
+<div class="sidebar">
+  <a routerLink="/dashboard" class="sidebar__brand">
+    <img src="assets/logo.png" alt="">
+  </a>
+  <div class="sidebar__list">
+    @for (option of options; track $index) {
+      <button 
+        mat-button
+        [routerLink]="option.url" 
+        [routerLinkActive]="['is-active']"
+      >
+        <mat-icon >{{option.icon}}</mat-icon>
+        <span>{{option.name}}</span>
+      </button>
+    }
+  </div>
+</div>

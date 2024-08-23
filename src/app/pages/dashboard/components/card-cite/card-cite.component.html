@@ -1,0 +1,19 @@
+<mat-card class="cite-card">
+    <mat-card-header>
+    <!--   <div 
+        mat-card-avatar 
+        class="example-header-image"
+        [ngStyle]="{'backgroundImage': 'url(' + cite.user.photoURL + ')'}"
+      ></div> -->
+        <mat-card-title>
+          {{cite.title}}
+           <span class="cite-card__date">{{cite.date | date: 'hh:mm a'}}</span>
+        </mat-card-title>
+        <mat-card-subtitle>
+          {{cite.user.displayName}} 
+        </mat-card-subtitle>
+        <button mat-icon-button mat-card-xl-image>
+            <mat-icon>arrow_forward_ios</mat-icon>
+        </button>
+    </mat-card-header>
+</mat-card>

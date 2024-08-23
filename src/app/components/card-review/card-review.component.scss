@@ -1,0 +1,43 @@
+.review{ 
+    border: 1px solid #ececec;
+    padding: 1rem;
+    border-radius: 4.3px;
+    width: 100%;
+    transition: .16s ease-in-out all;
+    &:hover{ 
+        box-shadow: var(--box-shadow);
+        transform: translateY(-5px);
+    }
+
+    &__author{
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+    }
+
+    &__author-img{
+        border-radius: 50%;
+    }
+
+    &__cite{
+        font-weight: 500;
+        color: var(--color-primary);
+        font-size: 1rem;
+        line-height: 1.5;
+    }
+
+    &__author-meta{
+        font-size: .875rem;
+        font-weight: 400;
+        color: var(--color-gray);
+    }
+
+    &__text{ 
+        font-size: .875rem;
+        font-weight: 400;
+        line-height: 1.5;
+        margin-top: 1rem;
+        color: var(--color-primary);
+        display: block;
+    }
+}

@@ -1,0 +1,57 @@
+.graph-section{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+    min-height: 0;  /* NEW */
+    min-width: 0;
+    &.half{ 
+        grid-template-columns: repeat(2, calc(50% - .75rem));
+    }
+    &.full { 
+        grid-template-columns: 1fr;
+    }
+}
+
+.graph { 
+    background-color: #F3F6F9;
+    border-radius: 4.3px;
+    padding:  .875rem;
+    position: relative;
+    &__header{ 
+        display: flex;
+        justify-content: space-between;
+        margin: 0 0 2rem;
+        a{
+            font-size: 0.75rem;
+        }
+    }
+
+    .group { 
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+        .list{ 
+            li{
+                display: flex;
+                align-items: center;
+                gap: 1rem;
+                margin-bottom: 1rem;
+                font-size: .875rem;
+            }
+        }
+
+        .circle{ 
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+        }
+        &.pie{ 
+            height: 200px;
+        }
+    }
+    .leyends{ 
+        display: flex;
+    }
+}

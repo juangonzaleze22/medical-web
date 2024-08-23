@@ -1,0 +1,20 @@
+<header class="navbar">
+    <button class="dropdownProfile" mat-button [matMenuTriggerFor]="menu">
+        <div class="content">
+            <img 
+                class="dropdownProfile__image" 
+                [ngSrc]="user?.photoURL ?? 
+                'https://i.pinimg.com/736x/c5/07/8e/c5078ec7b5679976947d90e4a19e1bbb.jpg'"
+                width="24"
+                height="24"
+                alt=""
+            >
+            <span class="dropdownProfile__title">{{user?.displayName}}</span>
+            <mat-icon>keyboard_arrow_down</mat-icon>
+        </div>
+    </button>
+    <mat-menu #menu="matMenu" class="menu_panel">
+      <button mat-menu-item>Profile</button>
+      <button mat-menu-item (click)="handleLogout()">Logout</button>
+    </mat-menu>
+</header>

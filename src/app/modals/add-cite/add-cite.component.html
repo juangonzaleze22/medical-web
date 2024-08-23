@@ -1,0 +1,75 @@
+<wrapper-modal title="Registra una cita medica" [buttonsActionsHide]="true">
+  
+    <form [formGroup]="formCite" (ngSubmit)="onSubmit()" class="">
+        <div class="form-add-cite">
+            <div class="form-group">
+                <mat-form-field appearance="outline">
+                    <mat-label>Titulo</mat-label>
+                    <input matInput formControlName="title" />
+                </mat-form-field>
+                @for( validation of addValidationMessages.title; track $index) {
+                    @if (f['title'].hasError(validation.type) &&
+                        (f['title'].dirty || f['title'].touched)) {
+                    <mat-error>{{ validation.message }}</mat-error>
+                    }
+                }
+            </div>
+   
+            <div class="form-group full">
+                <mat-form-field appearance="outline">
+                    <mat-label>Escriba por qué la cita o los sintomas</mat-label>
+                    <textarea matInput placeholder="Ex. It makes me feel..." formControlName="description"></textarea>
+                </mat-form-field>
+                <!-- @for( validation of loginValidationMessages.email; track $index) {
+                    @if (f['email'].hasError(validation.type) &&
+                        (f['email'].dirty || f['email'].touched)) {
+                    <mat-error>{{ validation.message }}</mat-error>
+                    }
+                } -->
+            </div>
+            <div class="form-group info full">
+                <mat-label>Fecha</mat-label>
+                <div class="align-item">
+                    <mat-icon>date_range</mat-icon> 
+                    {{data.date | date:'dd-MM-YYYY'}} 
+                    <mat-icon>schedule</mat-icon> 
+                    {{data.time}}
+                </div>
+            </div>
+            <!-- <div class="form-group full galery">
+                <ngx-dropzone (change)="onSelect($event)" [multiple]="false">
+                    <div *ngIf="preview" class="box-preview-image">
+                      <img [src]="preview" alt="Image preview" class="preview-image"/>
+                      <button 
+                        mat-icon-button 
+                        (click)="onRemove($event)" 
+                        color="primary" 
+                        class="btn-delete"
+                      >
+                      <mat-icon color="primary">close</mat-icon>
+                  </button>
+                    </div>
+                  
+                    <ngx-dropzone-preview *ngIf="!preview">
+                      <ngx-dropzone-label>
+                        <div class="empty-text-image">
+                            <mat-icon color="primary">close</mat-icon>
+                            <span></span>
+                        </div>
+
+                      </ngx-dropzone-label>
+                    </ngx-dropzone-preview>
+                </ngx-dropzone>
+            </div> -->
+        </div>
+        <button 
+            class="form_login__button"
+            mat-flat-button color="accent"
+            [disabled]="loading || this.formCite.invalid"
+            [class.spinner]="loading"
+        >
+            Agregar
+        </button>
+    </form>
+
+</wrapper-modal>

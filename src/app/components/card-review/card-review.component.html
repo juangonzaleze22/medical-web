@@ -1,0 +1,12 @@
+<blockquote class="review">
+    <div class="review__author">
+        <img class="review__author-img" [src]="'assets/reviews/' + review?.avatar + '.jpg'" alt="" width="64" height="64" />
+        <div class="review__author-body">
+            <div class="review__author-name">
+            <h4 class="review__cite">{{review?.name}}</h4>
+            </div>
+            <div class="review__author-meta">{{review?.rol}}</div>
+        </div>
+    </div>
+    <q class="review__text h5">{{review?.comment}}</q>
+</blockquote>

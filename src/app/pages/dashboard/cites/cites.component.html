@@ -1,0 +1,35 @@
+<div class="general-cites-section section-card">
+    <app-title-section 
+        title="Mis citas" 
+        [button]="isAscending ? 'Citas mas recientes' : 'Citas mas antiguas'"
+        (clicked)="onButtonClicked($event)"
+        iconButton="swap_vert"
+    />
+    <div class="cites">
+        <div class="list">
+            <!-- <div *ngIf="cites | async as citesData">
+                <app-card-cite 
+                    *ngFor="let cite of citesData.data"
+                    [cite]="cite"
+                    (click)="selectedCiteInfo(cite)"
+                    [ngClass]="{'active': selectedCite?._id === cite._id}"
+                />
+            </div> -->
+            <div *ngFor="let dateGroup of groupedCites">
+                <div class="date-header">
+                  <mat-icon>calendar_month</mat-icon>
+                  {{ dateGroup.date | date: "'MMM d, y"}}
+                </div>
+                <app-card-cite *ngFor="let cite of dateGroup.cites" [cite]="cite" (click)="selectedCiteInfo(cite)"
+                  [ngClass]="{'active': selectedCite?._id === cite._id}" />
+              </div>
+        </div>
+        <div class="detail">
+            @if(selectedCite){
+                <app-cite-details [cite]="selectedCite"/> 
+            }@else{
+                Seleccione una cita
+            }
+        </div>
+    </div>
+</div>

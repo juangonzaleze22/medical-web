@@ -1,0 +1,24 @@
+<div class="status-chip">
+    <mat-chip
+       [ngClass]="{
+           'chip-pending': status === status_cites.PENDING,
+           'chip-approved': status === status_cites.APPROVED,
+           'chip-cancelled': status === status_cites.CANCELLED,
+           'chip-finished': status === status_cites.FINISHED
+
+       }"
+    >
+    @if (status === status_cites.APPROVED) { 
+        Aprobado
+    }
+    @if (status === status_cites.PENDING) { 
+        Pendiente
+    }
+    @if (status === status_cites.CANCELLED) { 
+        Cancelado
+    }
+    @if (status === status_cites.FINISHED) { 
+        Finalizado
+    }
+   </mat-chip>
+</div>

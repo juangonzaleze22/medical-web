@@ -1,0 +1,23 @@
+<div class="info">
+    @if (userInfo.dataUser?._id === cite?.user?.userId || userInfo.dataUser?.isAdmin){
+        <h5>
+            {{cite?.user?.displayName}}
+        </h5>
+        @if(userInfo.dataUser?.isAdmin && cite?.status == 'PENDING'){
+            <div class="buttons">
+                 <button mat-icon-button (click)="handleDeleteModal($event)">
+                     <mat-icon>close</mat-icon>
+                 </button>
+                 <button mat-icon-button (click)="handleConfirmModal($event)" color="primary">
+                     <mat-icon>check</mat-icon>
+                 </button>
+            </div>
+        }@else {
+            <app-status-chip status="{{cite?.status}}"></app-status-chip>
+        }
+    }@else {
+        <h5>
+            Reservado
+        </h5>
+    }
+</div>

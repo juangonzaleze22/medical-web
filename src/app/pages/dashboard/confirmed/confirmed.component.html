@@ -1,0 +1,28 @@
+<div class="general-cites-section section-card">
+    <app-title-section 
+      title="Confirmadas" 
+      [button]="isAscending ? 'Citas mas recientes' : 'Citas mas antiguas'"
+      iconButton="swap_vert"
+  
+    />
+    <div class="cites">
+      <div class="list">
+        <div *ngFor="let dateGroup of groupedCites">
+          <div class="date-header">
+            <mat-icon>calendar_month</mat-icon>
+            {{ dateGroup.date | date: "'MMM d, y"}}
+          </div>
+          <app-card-cite *ngFor="let cite of dateGroup.cites" [cite]="cite" (click)="selectedCiteInfo(cite)"
+            [ngClass]="{'active': selectedCite?._id === cite._id}" />
+        </div>
+      </div>
+      <div class="detail">
+        @if(selectedCite){
+          <app-cite-details [cite]="selectedCite" (onChangeUpdateCite)="onChangeCite()"/>
+        }@else{
+          Seleccione una cita 
+        <!--   <img src="assets/empty-cites/empty.png" alt=""> -->
+        }
+      </div>
+    </div>
+  </div>

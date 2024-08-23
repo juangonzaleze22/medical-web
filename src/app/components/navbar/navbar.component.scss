@@ -1,0 +1,131 @@
+.navbar{
+    padding: 0;
+    transition: .16s ease-in-out;
+    background-color: var(--color-white);
+    box-shadow: var(--box-shadow);
+    z-index: 99;
+    /* &.down{ 
+        padding: 0rem 0;
+         img{ 
+            width: 100px;
+        }
+    } */
+    .container{ 
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    &__brand img{ 
+        width: 100px;
+        height: auto;
+        transition: .16s ease-in-out width;
+    }
+
+    &__btn-menu{ 
+        display: none;
+    }
+
+    &__menu{ 
+        display: flex;
+        align-items: center;
+        gap: 1.5rem;
+        a{ 
+            font-size: 1rem;
+            color: var(--color-primary);   
+            position: relative;
+            font-weight: 400;
+            cursor: pointer;
+            &:after{ 
+                content: '';
+                opacity: 0;
+                width: 4px;
+                
+            }
+            &:hover, &.active{ 
+                color: var(--color-secondary);
+                &::after{ 
+                    content: '';
+                    position: absolute;
+                    top: calc(100% + 5px);
+                    left: 0;
+                    opacity: 1;
+                    height: 4px;
+                    border-radius: 4px;
+                    pointer-events: none;
+                    transition: .2s ease-in-out;
+                    background: #177ee5;
+                    width: 1.5rem;
+                }
+            }
+        }
+    }
+
+    .brand-responsive{
+        display: none;
+    }
+
+    .header_menu{
+        display: none
+    }
+
+    @media screen and ( max-width: 767px ) {
+        .header_menu{
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+        }
+        .brand-responsive{ 
+            display: block;
+        }
+
+        .container{ 
+            flex-wrap: wrap;
+            position: relative;
+        }
+
+        &__btn-menu{ 
+            display: block;
+        }
+
+        &__menu { 
+            flex-direction: column;
+            gap: 1.5rem;
+            transition: .3s ease-in-out;
+            width: 100%;
+            position: relative; /* Required for the animation */
+            overflow: hidden; /* Optional to prevent content overflowing initially */
+            opacity: 0;
+            transform: translateX(-100%);
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            max-width: 240px;
+            background: #fff;
+            bottom: 0;
+            padding: 1.5rem  1rem;
+            z-index: 99;
+            box-shadow: var(--box-shadow);
+            margin: 0;
+            .navbar__brand{
+                align-self: flex-start;
+            }
+            &.open{ 
+                height: auto; /* Animate to the actual height of the menu content */
+                animation: menu-expand .3s ease-in-out forwards;
+                transform: translateX(0);
+                opacity: 1;
+            }   
+        }
+    }
+    @keyframes menu-expand {
+        from {
+          height: 0;
+        }
+        to {
+          height: auto;
+        }
+      }
+}
+

@@ -1,0 +1,22 @@
+.dashboard{ 
+    display: flex;
+    flex-direction: row; 
+    height: 100vh; 
+    width: 100vw; 
+    &__sidebar{
+        overflow-y: auto;
+        padding: 1rem; 
+        box-shadow: var(--box-shadow);
+        z-index: 1;
+    }
+    &__content{ 
+        flex: 1;
+        overflow-y: auto;
+        background-color: #fff; /* Adjust background color as needed */
+    }
+
+    &__main{ 
+        padding: 2rem 1rem;
+        background: #fff; /* Adjust background color as needed */
+    }
+}

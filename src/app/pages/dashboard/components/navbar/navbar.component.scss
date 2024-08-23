@@ -1,0 +1,30 @@
+
+.navbar{ 
+    display: flex;
+    justify-content: end;
+    padding: .5rem 2rem;
+    width: 100%;
+    background-color: var(--color-secondary);
+}
+
+.dropdownProfile{
+    height: max-content;
+    .content{ 
+        display: flex;
+        align-items: center;
+        gap: .575rem;
+        color: var(--color-white);
+        padding: .5rem 0;
+    }
+    &__image{
+        width: 2rem;
+        height: 2rem;
+        border-radius: 50%;
+    }
+    &__title{ 
+        font-size: 0.875rem;
+        font-weight: 500;
+        color: var(--color-white);
+    }
+
+}

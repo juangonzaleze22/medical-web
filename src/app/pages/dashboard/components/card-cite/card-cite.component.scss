@@ -1,0 +1,36 @@
+.example-header-image {
+  background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
+  background-size: cover;
+}
+
+.cite-card {
+  margin-bottom: 1rem;
+  transition: .16s ease-in-out;
+  font-size: 14px;
+  &.active{ 
+    background-color: #f9f9f9;
+  }
+  &:hover{ 
+    cursor: pointer;
+    transform: scale(1.025);
+  }
+  button{ 
+    margin-left: auto;
+    transform: translateY(-7.5px);
+  }
+
+  .cite-card__date{ 
+    background-color: #ececec;
+    color: #666;
+    height: max-content;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 10px;
+    font-weight: 600;
+    white-space: nowrap;
+    align-items: center;
+    margin: auto;
+    margin-left: 1rem;
+ 
+  }
+}

@@ -1,0 +1,79 @@
+.fc-theme-standard td, .fc-theme-standard th, .fc-theme-standard .fc-scrollgrid{
+    border: none;
+    font-size: .875rem;
+}
+
+/* .fc-daygrid-day-events{
+    display: none;
+} */
+
+.fc-daygrid-day-top{
+    width: 44px;
+    min-width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    align-items: center;
+    justify-content: center;
+    transition: .16s ease-in-out;
+    background-color: #fff;
+    z-index: 10;
+}
+
+.fc-daygrid-day-frame{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.fc-daygrid-day.fc-day-today{
+    background-color: transparent !important;
+}
+
+.fc-daygrid-day.fc-day-today .fc-daygrid-day-top{
+    background: #f1f1f1;
+}
+
+
+.fc .fc-highlight .fc-daygrid-day-top{
+    background: var(--color-accent);
+}
+
+.fc  .active-day .fc-daygrid-day-top{
+    background:var(--color-primary);
+    color: #fff;
+}
+
+.fc .fc-button{ 
+    background: transparent !important;
+    border: none !important;
+    color: var(--color-primary) !important;
+    box-shadow: none !important;
+}
+
+.fc .fc-daygrid-body-unbalanced .fc-daygrid-day-events{ 
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    display: flex;
+    align-items: start;
+    flex-wrap: wrap;
+    height: 80%;
+    width: 100%;
+    padding: 1px;
+    overflow: hidden;
+}
+
+.fc-daygrid-dot-event.fc-event-mirror, .fc-daygrid-dot-event:hover{
+    background-color: transparent;
+}
+
+.fc-direction-ltr .fc-daygrid-event.fc-event-end, .fc-direction-rtl .fc-daygrid-event.fc-event-start{
+    pointer-events: none;
+    margin: 0;
+    padding: 1.5px !important;
+}
+
+.fc-daygrid-event .fc-event-time, .fc-daygrid-event .fc-event-title{ 
+    display: none
+}

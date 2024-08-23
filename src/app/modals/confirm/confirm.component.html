@@ -1,0 +1,15 @@
+<wrapper-modal title="¡Atención!" reason_cancel>
+    <div class="confirmModal">
+        <mat-icon class="confirmModal__icon">{{data.actionType === "confirm" ? 'check' : 'cancel'}}</mat-icon>
+        <p class="confirmModal__text">{{data.text}}</p>
+
+    </div>
+    @if (data.actionType != 'confirm'){
+    <div class="confirmModal__input">
+        <mat-form-field appearance="outline">
+            <mat-label>Motivo para cancelar cita</mat-label>
+            <textarea matInput placeholder="Opcional" [(ngModel)]="reason_cancel"></textarea>
+        </mat-form-field>
+    </div>
+    }
+</wrapper-modal>

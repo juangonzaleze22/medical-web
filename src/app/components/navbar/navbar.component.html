@@ -1,0 +1,40 @@
+<header class="navbar" scrollSpy>
+    <div class="container">
+        <a routerLink="/" class="navbar__brand">
+            <img src="assets/logo.png" alt="">
+        </a>
+        <button class="navbar__btn-menu" mat-icon-button color="primary" (click)="isOpenMenu = !isOpenMenu">
+            <mat-icon>menu</mat-icon>
+        </button>
+        <ul class="navbar__menu" [ngClass]="{'open': isOpenMenu}">
+            <div class="header_menu">
+                <a fragment="/" class="navbar__brand brand-responsive">
+                    <img src="assets/logo.png" alt="">
+                </a>
+                <button mat-icon-button color="primary" (click)="isOpenMenu = false">
+                    <mat-icon>close</mat-icon>
+                </button>
+            </div>
+            <li><a href="#banner">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#reviews">Review</a></li>
+            <li><a href="#appointment">Agendar una cita</a></li>
+
+            <!-- <button mat-flat-button color="accent">
+                <mat-icon aria-hidden="false" fontIcon="wallet" />
+                Make an Appointment
+            </button> -->
+            @if (!isLogged() ) {
+                <li><a routerLink="/register">Registro</a></li>
+                <button mat-flat-button color="accent"  routerLink="/login">
+                    Iniciar sesión
+                </button>
+            }@else{
+                <li><a routerLink="/dashboard">Ir al panel</a></li>
+                <button mat-flat-button color="accent" (click)="logOut()">
+                    Cerrar sesión
+                </button>
+            }
+        </ul>
+    </div>
+</header>

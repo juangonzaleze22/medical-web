@@ -1,0 +1,49 @@
+<div class="section-card">
+    <app-title-section title="Calendario"/>
+    <div class="calendary">
+        <div class="shedule">
+            <full-calendar [options]="calendarOptions"></full-calendar>
+        </div>
+        <div class="box box-time-sheddule">
+            @if (selected_date != '') { 
+                <div class="heeader-cites">
+                    <h5 class="heeader-cites-title">
+                        <mat-icon>list</mat-icon>
+                        <span>Citas</span>
+                    </h5>
+                </div>
+                @for (time of TIME_AVAILABLE; track $index) {
+                    @if(eventFindByDate(time) ){
+                        <div class="box-time" (click)="openInfoModal(time)">
+                            <h5 class="time-box">{{time}}</h5> 
+                            <app-card-appointment 
+                                [cite]="eventFindByDate(time)" 
+                                class="full" 
+                                (confirmClicked)="handleConfirmAction({
+                                    message: '¿Estás seguro que desea confirmar esta cita médica?',
+                                    actionType: 'confirm',
+                                    idCite: eventFindByDate(time)?._id
+                                })"
+                                (deleteClicked)="handleConfirmAction({
+                                    message: '¿Estás seguro que desea rechazar esta cita médica?',
+                                    actionType: 'cancel',
+                                    idCite: eventFindByDate(time)?._id
+                                })"    
+                            />
+                        </div>
+                    }@else{ 
+                        <div class="box-time add-cite" (click)="openAddCite(time)">
+                            <h5 class="time-box">{{time}}</h5>  
+                        </div>
+                    }
+                }
+            }@else {
+                <div class="selectDate">
+                    <mat-icon>date_range</mat-icon>
+                    <h4>Por favor seleccione una fecha</h4>
+                </div>
+            }
+        </div>
+    </div>
+</div>
+

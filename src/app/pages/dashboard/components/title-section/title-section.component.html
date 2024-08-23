@@ -1,0 +1,9 @@
+<div class="title">
+    <h2>{{title}}</h2>
+    @if (button){
+    <button mat-flat-button color="accent" (click)="onClickButton()">
+        @if (iconButton) { <mat-icon>{{iconButton}}</mat-icon>}
+        {{button}}
+    </button>
+    }
+</div>

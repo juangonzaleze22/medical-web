@@ -1,0 +1,29 @@
+
+.cites{ 
+    .list{ 
+    }
+}
+
+.statusFilter{
+    margin: 1rem auto;
+}
+
+.section-tabs{ 
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    margin-top: 2rem;
+    mat-button-toggle-group{
+        margin: 0;
+    }
+    .field-input{
+        max-width: 220px;
+    }
+}
+
+.form-group{
+    font-size: 12px;
+    --mat-form-field-container-height: 34px;
+    --mat-form-field-container-vertical-padding: 10px;
+}

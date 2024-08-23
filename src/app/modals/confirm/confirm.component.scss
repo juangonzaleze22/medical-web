@@ -1,0 +1,19 @@
+.confirmModal{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    padding: 1rem 0;
+    &__icon{
+        font-size: 50px;
+        width: 75px;
+        height: auto;
+    }
+    &__text{
+        font-size: 1rem;
+        max-width: 80%;
+    }
+    &__input{ 
+        margin: 2rem auto;
+    }
+}

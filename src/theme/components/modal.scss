@@ -1,0 +1,13 @@
+.mat-toolbar{
+    height: 50px !important;
+    &.header {
+        button { 
+            zoom: .775;
+        }
+    }
+
+    &.footer{ 
+        gap: 3rem;
+        justify-content: center;
+    }
+}
